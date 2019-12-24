@@ -178,5 +178,44 @@ select ename,hiredate 입사일
 from emp;
 where substr(hiredate,4,2) = '12';
 
+***************
+*select
+*from
+*where
+*order by
+***************
+select sysdate, sysdate+30 from dual;
+
+select sysdate, substr(sysdate,4,2) from dual;
+select sysdate, to_char(sysdate, 'YY') from dual;
+select sysdate, to_char(sysdate, 'YYYY') from dual;
+select sysdate, to_char(sysdate, 'day') from dual;
+select sysdate, to_char(sysdate, 'mm') from dual;
+select sysdate, to_char(sysdate, 'dd') from dual;
+
+-- emp에서 사원 들의 사원명, 입사월, 요일정보를 출력하세요.
+select ename, to_char(hiredate, 'mm') as "입사월", to_chara(hiredate,'day') as "입사요일"
+from emp
+order by "입사월";
+
+select sysdate, to_date('2019/12/24') from dual;
+select sysdate, to_date('2019-12-24') from dual;
+select sysdate, to_date('2019 12 24') from dual;
+
+select sysdate, to_date('24/12/19') from dual;
+
+select sysdate,to_date('12/24/19','mm/dd/yy') from dual;
+
+-- decode 함수
+select ename,sal,deptno,decode(deptno,  10, sal*1.2
+										20, sal*0.7
+										sal) as "보너스"
+from emp
+order by deptno;
+
+
+
+
+
 
 
